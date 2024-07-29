@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="head">
+            <img class="logo" src="../public/images/lo.png" alt="">
+            <nav class="menu">
+                <ul>
+                    <li><a href="/Culture">Cartographie</a></li>
+                    <li><a href="/Rekolte">Méthodes d'échantillonnage</a></li>
+                    <li><a href="/Agenda">Propriétes de sol</a></li>
+                    
+                    <li><a href="/logout">Connection</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+        <nav class="phone">
+            <ul class="phoneUl">
+                <li><a href="culture.html">Cartographie</a></li>
+                    <li><a href="recolte.html">Méthodes d'échantillonnage</a></li>
+                    <li><a href="#A">Propriétes de sol</a></li>
+                    
+                    <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <svg class="burger" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+    </header>
+    <script>
+        const burger = document.querySelector(".burger");
+        const phone = document.querySelector('.phone');
+        const plant = document.querySelector(".plant")
+        const drop = document.querySelector(".dropdwn")
+        plant.addEventListener('click', ()=>{
+            if (drop.style.display === 'none' || drop.style.display === '') {
+                drop.style.display = 'block';
+            } else {
+                drop.style.display = 'none';
+            }
+        })
+        burger.addEventListener('click', () => {
+            if (phone.style.display === 'none' || phone.style.display === '') {
+                phone.style.display = 'block';
+            } else {
+                phone.style.display = 'none';
+            }
+        });
+    </script>
+    
+</body>
+</html>
