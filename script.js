@@ -1,12 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const burger = document.querySelector('.burger');
-  const mainMenu = document.querySelector('.main-menu');
+const burger = document.querySelector(".burger");
+const phone = document.querySelector('.phone');
 
-  burger.addEventListener('click', () => {
-      if (mainMenu.style.display === 'block') {
-          mainMenu.style.display = 'none';
-      } else {
-          mainMenu.style.display = 'block';
-      }
-  });
+burger.addEventListener('click', () => {
+    phone.classList.toggle('hidden');
 });
