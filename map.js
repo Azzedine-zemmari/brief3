@@ -3,17 +3,17 @@ mapboxgl.accessToken =
 // Coordinates of the city center
 var cityCenter = [-9.233699512061456, 32.29497240385899];
 // Define a bounding box around the city (ensure this covers the coordinates you are using)
-var bounds = [
-[-9.273, 32.27], // Southwest coordinates
-[-9.2, 32.32], // Northeast coordinates
-];
+// var bounds = [
+// [-9.273, 32.27], // Southwest coordinates
+// [-9.2, 32.32], // Northeast coordinates
+// ];
 // Create the map instance
 var map = new mapboxgl.Map({
 container: "map", // container ID
 style: "mapbox://styles/mapbox/streets-v11", // style URL
 center: cityCenter, // starting position [lng, lat]
 zoom: 12, // starting zoom (increased for better visibility)
-maxBounds: bounds, // Set the bounding box as max bounds
+// maxBounds: bounds,  Set the bounding box as max bounds
 });
 const cords =[
     { id: 1, lat: 32.664108, long: -9.006899, ph: 6.8, mo: 4.6, pho: 41.1, pots: 276.3 },
@@ -115,6 +115,7 @@ const cords =[
     { id: 97, lat: 34.071315, long: -5.909825, ph: 8.6, mo: 1.3, pho: 32.5, pots: 295.2 },
     { id: 98, lat: 34.123673, long: -5.865193, ph: 7.3, mo: 4.5, pho: 38.4, pots: 239.7 },
     { id: 99, lat: 34.187382, long: -5.817845, ph: 6.4, mo: 3.6, pho: 35.1, pots: 256.8 }
+    // ru {lng: -9.254575344573908, lat: 32.30352428025785}
 ];
 //The idea is that smaller sums indicate closer points.
 map.on('click', function(e) {
@@ -122,9 +123,9 @@ map.on('click', function(e) {
     const lngLat = e.lngLat;
     console.log(lngLat)
     cords.forEach((cord,index)=>{
-        const lat =  cord.lat - lngLat.lat;
-        const long = cord.long - lngLat.lng;
-        sum.push({id : index, sum : lat+long});
+      let lat = 0;
+      let long = 0;
+        sum.push({id : index, sum : Math.abs(lngLat.lat - cord.lat)+Math.abs(lngLat.lng - cord.long)});
     });
     let first = sum[0];
     for(let i = 0; i < sum.length;i++){
@@ -132,6 +133,7 @@ map.on('click', function(e) {
             first = sum[i];
         }
     }
+    // console.log(first);
     //intiall first with the first cords and if he found a smaller coordination then the first coordination it will update the variable first
     const closer = cords.find((cord)=>cord.id == first.id);
     let lat = document.getElementById('lat');
@@ -140,13 +142,14 @@ map.on('click', function(e) {
     lat.innerHTML =  closer.lat;
     long.innerHTML =  closer.long;
     ph.innerHTML =  closer.ph;
-    var marker = new mapboxgl.Marker()
-    .setLngLat([closer.long, closer.lat])
-    .addTo(map);
-    // console.log(lat,long,ph);
+
     console.log('closer : ',closer);
 });
-
+cords.forEach((ele)=>{
+  new mapboxgl.Marker()
+    .setLngLat([ele.long, ele.lat])
+    .addTo(map);
+});
 // Add navigation control (zoom buttons)
 map.addControl(new mapboxgl.NavigationControl());
 // Add geolocation control
