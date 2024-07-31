@@ -168,6 +168,9 @@ footer{
   width: 300px;
   transition: transform 0.3s;
 }
+.service-box p{
+    color: black;
+}
 .service-box:hover{
   transform: translateY(-10px);
 }
@@ -190,7 +193,7 @@ footer{
   animation: fadeIn 1s ease-out;
 }
 
-body{
+#Échantillonnage{
     display: flex;
     justify-content: center;
     height: 100vh;
@@ -231,12 +234,12 @@ img{
     transition: height 0.5s;
 }
 
-h1{
+.intro h1{
     margin: 10px;
     font-size: 22px;
 }
 
-p{
+.intro p{
     font-size: 21px;
     color:white;
     margin: 10px;
