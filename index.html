@@ -3,57 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Carte des analyses du sol - Safi</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div class="head">
-            <img class="logo" src="../public/images/lo.png" alt="">
-            <nav class="menu">
+        <div class="header-container">
+            <img class="logo" src="image/Capture-removebg-preview.png" alt="Logo">
+            <nav class="main-menu">
                 <ul>
-                    <li><a href="/Culture">Cartographie</a></li>
-                    <li><a href="/Rekolte">Méthodes d'échantillonnage</a></li>
-                    <li><a href="/Agenda">Propriétes de sol</a></li>
-                    
-                    <li><a href="/logout">Connection</a></li>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#cartographie">Cartographie</a></li>
+                    <li><a href="#analyses">Analyses du Sol</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            
+            <svg class="burger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+            </svg>
         </div>
-        <nav class="phone">
-            <ul class="phoneUl">
-                <li><a href="culture.html">Cartographie</a></li>
-                    <li><a href="recolte.html">Méthodes d'échantillonnage</a></li>
-                    <li><a href="#A">Propriétes de sol</a></li>
-                    
-                    <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <svg class="burger" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
     </header>
-    <script>
-        const burger = document.querySelector(".burger");
-        const phone = document.querySelector('.phone');
-        const plant = document.querySelector(".plant")
-        const drop = document.querySelector(".dropdwn")
-        plant.addEventListener('click', ()=>{
-            if (drop.style.display === 'none' || drop.style.display === '') {
-                drop.style.display = 'block';
-            } else {
-                drop.style.display = 'none';
-            }
-        })
-        burger.addEventListener('click', () => {
-            if (phone.style.display === 'none' || phone.style.display === '') {
-                phone.style.display = 'block';
-            } else {
-                phone.style.display = 'none';
-            }
-        });
-    </script>
     
+    <section id="home" class="hero-section">
+        <div class="hero-text">
+            <h1>Bienvenue sur la Carte des Analyses du Sol</h1>
+            <p>Découvrez les propriétés du sol de la province de Safi et apprenez comment réaliser une cartographie efficace.</p>
+        </div>
+    </section>    
+    <div class="service-boxes">
+      <div class="service-box">
+          <h3 style="color: #6C4A3F;">Propriétés du Sol</h3>
+          <p>Analyse des caractéristiques du sol, y compris la matière organique, le pH, le phosphore, le potassium et la salinité pour optimiser la culture.</p>
+      </div>
+      <div class="service-box">
+          <h3 style="color: #6C4A3F;">Méthodes d'Échantillonnage</h3>
+          <p>Présentation des techniques utilisées pour prélever des échantillons de sol, assurant des résultats précis pour l'analyse.</p>
+      </div>
+      <div class="service-box">
+          <h3 style="color: #6C4A3F;">Carte Géographique de Safi</h3>
+          <p>Carte interactive de la province de Safi, montrant les zones d'analyse du sol et les données associées pour une meilleure compréhension géographique.</p>
+      </div>
+  </div>
+  
+  <section id="contact" class="contact-section">
+    <h2>Contactez-nous</h2>
+    <form action="#" method="post">
+        <input type="text" id="name" name="name" required placeholder="Nom">
+        <input type="email" id="email" name="email" required placeholder="Email">
+        <textarea id="message" name="message" required placeholder="Ecrire votre message"></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
+    <footer>
+        <p>&copy; 2024 Carte des analyses du sol - Safi. Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
