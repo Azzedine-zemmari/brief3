@@ -787,3 +787,6 @@ strong {
 .para {
     max-width: 200px;
 }
+.hidden {
+    display: none;
+}
